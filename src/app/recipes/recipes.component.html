@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col col-xl-12">
+    <div class="form-group">
+      <input (input)="onSearch($event)" type="text" required ngModel name="searchTect" #searchTect="ngModel" class="form-control"
+        id="searchTect" placeholder="Search">
+    </div>
+  </div>
+  <div class="col text-center col-xl-12">
+    <button type="button" [class.active]="activeTag" (click)="onTagChange('all')" class="btn btn-custom active m-2 mt-0 btn-md">All</button>
+    <button type="button" [class.active]="!activeTag" (click)="onTagChange('favourite')" class="btn btn-custom btn-md">Favourites</button>
+  </div>
+  <div *ngFor="let recipe of filteredRecipes" [class.selected]="isSelected(recipe)" class="col col-md-4 mb-4">
+    <div class="card">
+      <img src="{{recipe.imgUrl}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ recipe.name }}</h5>
+        <p class="card-text">{{ recipe.ingredients }}</p>
+
+      </div>
+      <div class="card-footer p-0 bg-transparent">
+        <div class="row no-gutters text-center">
+          <div class="col">
+            <a *ngIf="!recipe.isFavourite" class="btn-block border p-3" (click)="markFavourite(recipe)">Favourite</a>
+            <a *ngIf="recipe.isFavourite" class="btn-block border p-3" (click)="markFavourite(recipe)">Unfavourite</a>
+          </div>
+          <div class="col">
+            <a class="btn-block border p-3" routerLink="/recipes/{{recipe._id}}">Edit</a>
+          </div>
+          <div class="col">
+            <a class="btn-block border p-3" (click)="deleteRecipe(recipe)">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="error"> {{ error }} </div>

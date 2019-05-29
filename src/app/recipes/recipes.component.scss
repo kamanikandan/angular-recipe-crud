@@ -1,0 +1,15 @@
+.selected {
+  .card {
+    border: 1px solid red;
+  }
+}
+
+.btn-custom {
+  background: #eee;
+  color: #000;
+  &:hover,
+  &.active {
+    background: #5dcdb3;
+    color: #fff;
+  }
+}

@@ -13,3 +13,20 @@
     color: #fff;
   }
 }
+
+.border-2 {
+  border-radius: 25px;
+}
+.card-text {
+  color: #888;
+}
+.btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(93, 205, 179, 0.25);
+}
+.btn-block {
+  color: #007bff !important;
+  cursor: pointer;
+  &:hover {
+    text-decoration: none;
+  }
+}

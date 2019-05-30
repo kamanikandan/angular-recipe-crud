@@ -8,13 +8,15 @@ import { HttpClientModule } from "@angular/common/http";
 import { DetailsComponent } from "./details/details.component";
 import { RecipesComponent } from "./recipes/recipes.component";
 import { NavbarComponent } from "./navbar/navbar.component";
+import { NotFoundComponent } from "./not-found/not-found.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     DetailsComponent,
     RecipesComponent,
-    NavbarComponent
+    NavbarComponent,
+    NotFoundComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

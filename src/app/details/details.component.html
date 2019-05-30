@@ -1,24 +1,27 @@
-<div class="row" *ngIf="recipe">
+<div class="row pt-4 border-top-1" *ngIf="recipe">
     <div class="col col-md-8">
-        <h3 class="display-4">{{ recipe.name }}</h3>
+        <h3 class="display-4 recipe-heading mb-3">{{ recipe.name || "Add New Recipe" }}</h3>
         <form #f="ngForm" (ngSubmit)="submit(f)">
             <div class="form-group">
+                <label for="name">Recipe Name</label>
                 <input type="text" required ngModel name="name" #name="ngModel" [(ngModel)]="recipe.name" class="form-control" id="name"
                     placeholder="Recipe Name">
             </div>
             <div class="form-group">
+                <label for="ingredients">Ingredients</label>
                 <input type="text" required ngModel name="ingredients" #ingredients="ngModel" [(ngModel)]="recipe.ingredients" class="form-control"
                     id="ingredients" placeholder="Ingredients">
             </div>
             <div class="form-group">
+                <label for="imgUrl">Recipe Image</label>
                 <input type="text" required ngModel name="imgUrl" #imgUrl="ngModel" [(ngModel)]="recipe.imgUrl" class="form-control" id="imgUrl"
                     placeholder="Recipe Image">
             </div>
-            <button [disabled]="!f.valid" type="submit" class="btn btn-primary">Save</button>
+            <button [disabled]="!f.valid" type="submit" class="btn btn-lg btn-primary">Save</button>
         </form>
     </div>
-    <div class="col col-md-4">
-        <div class="form-group">
+    <div class="col col-md-4 pt-4">
+        <div class="form-group" *ngIf="recipe.imgUrl">
             <img src="{{recipe.imgUrl}}" class="img-thumbnail" alt="{{recipe.name}}" />
         </div>
     </div>
